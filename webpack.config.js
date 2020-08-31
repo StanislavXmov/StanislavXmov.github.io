@@ -45,7 +45,7 @@ module.exports = {
   devtool: isDev ? 'source-map' : false,
   devServer: {
     host: '192.168.0.104',
-    contentBase: path.resolve(__dirname, 'dist'),
+    contentBase: path.resolve(__dirname, 'portfolio'),
     watchContentBase: true,
     port: 8080,
     // hot: isDev
@@ -80,19 +80,19 @@ module.exports = {
     new CopyPlugin([
         { 
           from: path.resolve(__dirname, 'src/favicon.ico'), 
-          to: path.resolve(__dirname, 'dist') 
+          to: path.resolve(__dirname, 'portfolio') 
         },
         { 
           from: path.resolve(__dirname, 'src/icons'), 
-          to: path.resolve(__dirname, 'dist/icons') 
+          to: path.resolve(__dirname, 'portfolio/icons') 
         },
         { 
           from: path.resolve(__dirname, 'src/img'), 
-          to: path.resolve(__dirname, 'dist/img') 
+          to: path.resolve(__dirname, 'portfolio/img') 
         },
         { 
           from: path.resolve(__dirname, 'src/projects/weather/img'), 
-          to: path.resolve(__dirname, 'dist/weatherimg') 
+          to: path.resolve(__dirname, 'portfolio/weatherimg') 
         },
       ]
     ),
