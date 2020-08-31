@@ -3,14 +3,14 @@ import './style.scss';
 class FetchForecast {
   static key = 'JYwP9uMubXdBStGhTyrsHsGbZ1MrlBgi';
   static getWeather = async (id) => {
-    const base = `http://dataservice.accuweather.com/currentconditions/v1/`;
+    const base = `https://dataservice.accuweather.com/currentconditions/v1/`;
     const query = `${id}?apikey=${FetchForecast.key}`;
     const response = await fetch(base + query);
     const data = await response.json();
     return data[0];
   };
   static getCity = async (city) => {
-    const base = `http://dataservice.accuweather.com/locations/v1/cities/search`;
+    const base = `https://dataservice.accuweather.com/locations/v1/cities/search`;
     const query = `?apikey=${FetchForecast.key}&q=${city}`;
     const response = await fetch(base + query);
     const data = await response.json();
