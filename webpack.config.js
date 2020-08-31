@@ -32,7 +32,7 @@ module.exports = {
     weather: ['@babel/polyfill', './projects/weather/weather.js']
   },
   output: {
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'portfolio')
   },
   
   resolve: {
