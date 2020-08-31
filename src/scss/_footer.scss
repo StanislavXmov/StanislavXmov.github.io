@@ -1,0 +1,19 @@
+footer {
+  background: $nav-bg;
+  color: #fff;
+  min-height: 12vh;
+  padding: 0 5%;
+  @include flex(flex-start, center, row);
+  ul {
+    flex: 1 1 40rem;
+    @include flex(space-around, center, row);
+  }
+  h4 {
+    margin-right: 5rem;
+  }
+  .footer-social {
+    a {
+      margin-right: 5rem;
+    }
+  }
+}
