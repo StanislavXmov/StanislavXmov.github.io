@@ -21,9 +21,9 @@
 }
 .project {
   margin: 2rem;
-  flex: 1 1 30rem;
+  flex: 1 1 34rem;
   // width: 30%;
-  padding: 2rem;
+  padding: 2rem 2rem 1rem;
   background-color: #fff;
   border: 4px solid $nav-bg;
   border-radius: 2rem;
@@ -40,5 +40,9 @@
     margin-top: 2rem;
     font-size: 2rem;
     text-align: left;
+  }
+  a {
+    margin-bottom: 8px;
+    display: block;
   }
 }

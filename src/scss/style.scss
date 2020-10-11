@@ -56,10 +56,15 @@ $gray-text: #2c2c2c;
   }
   .intro {
     flex-wrap: wrap;
+    .intro-text h2 {
+      font-size: 5rem;
+    }
   }
+  
   .intro-text {
     margin-top: 5rem;
     text-align: center;
+    
   }
   .intro-social {
     @include flex(center, center, row);
@@ -85,6 +90,7 @@ $gray-text: #2c2c2c;
 }
 
 @media screen and (max-width: 426px) {
+  
   nav {
     .logo img {
       width: 100px;
@@ -106,6 +112,9 @@ $gray-text: #2c2c2c;
   .intro {
     min-height: 60vh;
     padding: 0;
+    .intro-text h2 {
+      font-size: 3.4rem;
+    }
   }
   footer {
     svg {

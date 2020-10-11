@@ -48,8 +48,8 @@
       border: 2px solid $nav-bg;
       outline: none;
       border-radius: 1rem;
-      &:focus {
-        background-color: #6ea598;
+      &:focus ,&:hover {
+        background-color: #c9fff2;
       }
     }
   }

@@ -29,7 +29,9 @@ module.exports = {
     index: './index.js',
     drumPad: './projects/drumPad/drumPad.js',
     gradient: './projects/linearGradient/gradient.js',
-    weather: ['@babel/polyfill', './projects/weather/weather.js']
+    weather: ['@babel/polyfill', './projects/weather/weather.js'],
+    punk: ['./projects/punkcyber/punk.js'],
+    game: './projects/game/game.js'
   },
   output: {
     path: path.resolve(__dirname, 'portfolio')
@@ -45,7 +47,7 @@ module.exports = {
   devtool: isDev ? 'source-map' : false,
   devServer: {
     host: '192.168.0.104',
-    contentBase: path.resolve(__dirname, 'portfolio'),
+    contentBase: path.resolve(__dirname, 'dist'),
     watchContentBase: true,
     port: 8080,
     // hot: isDev
@@ -75,6 +77,18 @@ module.exports = {
       inject: true,
       chunks: ['weather'],
       filename: 'weather.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './projects/punkcyber/punk.html',
+      inject: true,
+      chunks: ['punk'],
+      filename: 'punk.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './projects/game/game.html',
+      inject: true,
+      chunks: ['game'],
+      filename: 'game.html'
     }),
 
     new CopyPlugin([
