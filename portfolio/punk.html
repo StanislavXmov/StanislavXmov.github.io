@@ -1,0 +1,146 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet"><title>PunkCyber2056</title><style>body {
+      position: relative;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #about {
+      font-family: 'Inconsolata';
+      font-size: 0px;
+    }
+    .btn-home {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      padding: 10px;
+      color: #292929;
+      background: #fff;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-family: sans-serif;
+    }</style><script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.3/pixi.min.js" integrity="sha512-J7UHpLx39bpqtP+aWP6yIuXroFk0XPkDQaS9zDthM4TVeaXstWYh556gxsXwwIwpAPSoKqVHW+eqz3B93SpyKg==" crossorigin="anonymous"></script><script>let app;
+    let bgBack;
+    let bgMiddle;
+    let bgFront;
+    let bg_;
+    let bgX = 0;
+    let bgSpeed = 0;
+    let text1;
+
+    let car;
+    let carSheet = {};
+
+    window.onload = function() {
+      app = new PIXI.Application(
+        {
+          width: 960,
+          height: 744,
+          backgroundColor: 0x000000
+        }
+      );
+      document.body.append(app.view);
+
+      app.loader.baseUrl = './img';
+      app.loader
+        .add('bgBack', 'bgbg1.png')
+        .add('bgFront', 'front.png')
+        .add('bgMiddle', 'back.png')
+        .add('bg', 'bg_.png')
+        .add('car', 'cybercar.png');
+      app.loader.onComplete.add(initLevel);
+      app.loader.load();
+    }
+
+    function initLevel() {
+      bg_ = createBg(app.loader.resources['bg'].texture);
+      bgBack = createBg(app.loader.resources['bgBack'].texture);
+      bgMiddle = createBg(app.loader.resources['bgMiddle'].texture);
+      bgFront = createBg(app.loader.resources['bgFront'].texture);
+      document.addEventListener('keyup', switchDir);
+      createCarSheet();
+      createCar();
+      app.ticker.add(gameLoop);
+    }
+
+    function gameLoop(d) {
+      if (!text1 && bgX < -4000) {
+        text1 = new PIXI.Text('PunkCyber2056');
+        text1.x = app.view.width / 2;
+        text1.y = app.view.height / 2;
+        text1.anchor.set(0.5);
+        text1.style = new PIXI.TextStyle({
+          fill: 0xF1EA03,
+          fontSize: 77,
+          fontFamily: 'Inconsolata',
+          fontWeight: 'bold',
+          stroke: 0x63B6E5,
+          strokeThickness: 6
+        });
+        app.stage.addChild(text1);
+      }
+      updateBg();
+    }
+    function createCar() {
+      car =  new PIXI.AnimatedSprite(carSheet.stop);
+      car.anchor.set(0.5);
+      car.animationSpeed = 0.02;
+      car.loop = false;
+      car.x = 200;
+      car.y = app.view.height - 86;
+      app.stage.addChild(car);
+      car.play();
+    }
+
+    function createCarSheet() {
+      let sheet = new PIXI.BaseTexture.from(app.loader.resources['car'].url);
+      let w = 413;
+      let h = 137;
+      carSheet['stop'] = [
+        new PIXI.Texture(sheet, new PIXI.Rectangle(6 * w, 0, w, h)),
+      ];
+      
+      carSheet['run'] = [
+        new PIXI.Texture(sheet, new PIXI.Rectangle(0 * w, 0, w, h)),
+        new PIXI.Texture(sheet, new PIXI.Rectangle(1 * w, 0, w, h)),
+        new PIXI.Texture(sheet, new PIXI.Rectangle(2 * w, 0, w, h)),
+        new PIXI.Texture(sheet, new PIXI.Rectangle(3 * w, 0, w, h)),
+        new PIXI.Texture(sheet, new PIXI.Rectangle(4 * w, 0, w, h)),
+      ];
+    }
+
+    function createBg(texture) {
+      let tiling = new PIXI.TilingSprite(texture, 960, 744);
+      tiling.position.set(0,0);
+      app.stage.addChild(tiling);
+      return tiling;
+    }
+
+    function updateBg() {
+      bgX = bgX + bgSpeed;
+      bgFront.tilePosition.x = bgX;
+      bgMiddle.tilePosition.x = bgX / 2;
+      bgBack.tilePosition.x = bgX / 8;
+    }
+
+    function switchDir(e) {
+      switch (e.keyCode) {
+        case 87:
+          if(!car.playing) {
+            car.textures = carSheet.run;
+            car.loop = true;
+            car.play();
+          }
+          car.animationSpeed += 0.01;
+          bgSpeed = bgSpeed - 1;
+          break;
+        case 32:
+          bgSpeed = 0;
+          car.stop();
+          car.animationSpeed = 0.02;
+          car.textures = carSheet.stop;
+          break;
+        default:
+          break;
+      }
+    }</script></head><body><div id="gameDiv"></div><a class="btn-home" href="https://stanislavxmov.github.io/portfolio/">Home Page</a><script src="punk.js"></script></body></html>
