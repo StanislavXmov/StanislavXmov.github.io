@@ -8,7 +8,19 @@ body {
   background: rgb(203, 203, 203);
   color: #f2fbca;
 }
-
+.loading {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 40%;
+  top: 20%;
+  left: 30%;
+  background-color: aquamarine;
+  font-size: 56px;
+  
+}
 .scene {
   display: flex;
   align-items: center;

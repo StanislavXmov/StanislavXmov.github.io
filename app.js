@@ -2,7 +2,7 @@
 
 const WIDTH = 960 * 2;
 const HEIGHT = 540 * 2;
-
+const loading = document.querySelector('.loading');
 const app = new PIXI.Application({
   width: window.innerWidth,
   height: window.innerHeight,
@@ -131,9 +131,8 @@ const createModal = (text) => {
 
 const dialog = createModal('Hi!\nHow are you bro?');
 
-function loadProgressHandler(loader, resource) {
-  console.log("loading: " + resource.url); 
-  console.log("progress: " + loader.progress + "%"); 
+function loadProgressHandler(loader, resource) { 
+  loading.innerHTML = `progress: ${loader.progress}%`;
 }
 app.loader.onProgress.add(loadProgressHandler);
 app.loader
@@ -412,6 +411,7 @@ const createAnimationElement = (sheet, x, y, text, type) => {
 }
 
 function setup() {
+  loading.style.display = 'none';
   let scene = new PIXI.Sprite(app.loader.resources.scene.texture);
   app.stage.addChild(scene);
 
