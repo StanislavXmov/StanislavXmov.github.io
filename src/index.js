@@ -2,6 +2,7 @@ import './scss/style.scss';
 
 const hardBtn = document.querySelector('[data-hard="skills"]');
 const softBtn = document.querySelector('[data-soft="skills"]');
+const contact = document.getElementById('contact');
 
 const createPopup = (cl, content) => {
   let popupEl;
@@ -22,14 +23,34 @@ const createPopup = (cl, content) => {
   const popup = `
     <div class="popup ${cl}">
       <h2>${content.title}</h2>
-      ${content.skills.map(s => `<span>${s}</span>`).join('')}
+      ${content.content ? content.content.map(s => `<span>${s}</span>`).join('') : ''}
       <button data-popup="close">Ok</button>
     </div>
   `;
   popupEl.innerHTML = popup;
   popupEl.style.display = 'flex';
+
   
 }
 
-hardBtn.addEventListener('click', () => createPopup('popup-hard', {title:'Hard Skills', skills: ['HTML+CSS', 'SCSS', 'Pure JS (ES8+)', 'Webpack', 'React', 'Redux', 'Next', 'NodeJS', 'Git', 'SVG', 'Figma']}));
-softBtn.addEventListener('click', () => createPopup('popup-soft', {title:'Soft Skills', skills: ['Креативность', 'Мотивация', 'Адаптивность', 'Умение слушать', 'Эмпатия']}));
+hardBtn.addEventListener('click', () => createPopup('popup-hard', {title:'Hard Skills', content: ['HTML+CSS', 'SCSS', 'Pure JS (ES8+)', 'Webpack', 'React', 'Redux', 'Next', 'NodeJS', 'Git', 'SVG', 'Figma']}));
+softBtn.addEventListener('click', () => createPopup('popup-soft', {title:'Soft Skills', content: ['Креативность', 'Мотивация', 'Адаптивность', 'Умение слушать', 'Эмпатия']}));
+contact.addEventListener('click', () => createPopup('popup-contact', {title:'Contact', content: [
+  `<div style="display: flex; flex-direction: column; align-items: center;"><svg width="60" height="60" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10.5" y="10.5" width="299" height="299" rx="26.5" stroke="#87317E" stroke-width="21"/>
+  <path d="M40 153.5L279.5 65L216 272.5L151 202L279.5 65L115 176.5L40 153.5Z" fill="#87317E"/>
+  <path d="M279.5 65L40 153.5L115 176.5L279.5 65ZM279.5 65L151 202L216 272.5L279.5 65Z" stroke="#87317E"/>
+  </svg><a href="https://t.me/stanislav_Xmov">Telegram</a></div>`,
+  `<div style="display: flex; flex-direction: column; align-items: center;"><svg width="60" height="60" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10.5" y="10.5" width="299" height="299" rx="26.5" stroke="#87317E" stroke-width="21"/>
+  <path d="M258.5 248V71L159.75 154.5L61 71V248H159.75H258.5Z" fill="#87317E"/>
+  <path d="M248 71L159.75 143L71.5 71H248Z" fill="#87317E"/>
+  <path d="M258.5 248V71L159.75 154.5L61 71V248H159.75H258.5Z" stroke="#87317E"/>
+  <path d="M248 71L159.75 143L71.5 71H248Z" stroke="#87317E"/>
+  </svg>
+  
+  <a href="mailto:xiiiovart@gmail.com">xiiiovart@gmail.com</a></div>`,
+]}));
+
+
+
