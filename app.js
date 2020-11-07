@@ -3,6 +3,7 @@
 const WIDTH = 960 * 2;
 const HEIGHT = 540 * 2;
 const loading = document.querySelector('.loading');
+const progress = document.querySelector('.progress');
 const app = new PIXI.Application({
   width: window.innerWidth,
   height: window.innerHeight,
@@ -132,7 +133,7 @@ const createModal = (text) => {
 const dialog = createModal('Hi!\nHow are you bro?');
 
 function loadProgressHandler(loader, resource) { 
-  loading.innerHTML = `progress: ${loader.progress}%`;
+  progress.innerHTML = `progress: ${loader.progress}%`;
 }
 app.loader.onProgress.add(loadProgressHandler);
 app.loader

@@ -5,21 +5,29 @@
 }
 
 body {
-  background: rgb(203, 203, 203);
-  color: #f2fbca;
+  background: rgb(37, 37, 37);
+  color: #def869;
 }
 .loading {
   position: absolute;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 40%;
-  height: 40%;
-  top: 20%;
+  top: calc((100vh / 2) - 70px);
   left: 30%;
-  background-color: aquamarine;
-  font-size: 56px;
-  
+  font-size: 32px;
+  font-family: monospace;
+}
+.loader {
+  width: 77px;
+  height: 124px;
+  background-image: url('./image/loader.png');
+  animation: loader 1.2s infinite steps(9);
+}
+@keyframes loader {
+  to {background-position: -693px 0;;}
 }
 .scene {
   display: flex;
@@ -27,4 +35,22 @@ body {
   justify-content: center;
   width: 100vw;
   height: 100vh;
+}
+
+@media screen and (max-width: 1332px) {
+  .progress {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 754px) {
+  .progress {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .progress {
+    font-size: 12px;
+  }
 }
