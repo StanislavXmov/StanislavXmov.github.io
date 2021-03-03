@@ -33,7 +33,7 @@ const createPopup = (cl, content) => {
   
 }
 
-hardBtn.addEventListener('click', () => createPopup('popup-hard', {title:'Hard Skills', content: ['HTML+CSS', 'SCSS', 'Pure JS (ES8+)', 'Webpack', 'React', 'Redux', 'Next', 'NodeJS', 'Git', 'SVG', 'Figma']}));
+hardBtn.addEventListener('click', () => createPopup('popup-hard', {title:'Hard Skills', content: ['HTML+CSS', 'SCSS', 'Pure JS (ES8+)', 'Webpack', 'React', 'Redux', 'ThreeJS', 'NodeJS', 'Git', 'SVG', 'Figma']}));
 softBtn.addEventListener('click', () => createPopup('popup-soft', {title:'Soft Skills', content: ['Креативность', 'Мотивация', 'Адаптивность', 'Умение слушать', 'Эмпатия']}));
 contact.addEventListener('click', () => createPopup('popup-contact', {title:'Contact', content: [
   `<div style="display: flex; flex-direction: column; align-items: center;"><svg width="60" height="60" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
