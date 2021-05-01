@@ -46,7 +46,7 @@ module.exports = {
   },
   devtool: isDev ? 'source-map' : false,
   devServer: {
-    host: '192.168.0.104',
+    host: '192.168.0.105',
     contentBase: path.resolve(__dirname, 'dist'),
     watchContentBase: true,
     port: 8080,
