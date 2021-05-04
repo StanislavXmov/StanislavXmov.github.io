@@ -1,25 +1,22 @@
-
 $nav-bg: #3c3c3c;
-$icon-bg: #A5FFEA;
+$icon-bg: #a5ffea;
 $gradient: linear-gradient(to left, $icon-bg, $nav-bg);
 
 $bg-color: #154353;
 $gray-text: #2c2c2c;
 
-@mixin flex($justify, $align, $direction){
+@mixin flex($justify, $align, $direction) {
   display: flex;
   justify-content: $justify;
   align-items: $align;
   flex-direction: $direction;
 }
 
-@import 'global';
-@import 'home';
-@import 'projects';
-@import 'contact';
-@import 'footer';
-
-
+@import "global";
+@import "home";
+@import "projects";
+@import "contact";
+@import "footer";
 
 @media screen and (max-width: 1332px) {
   html {
@@ -36,6 +33,9 @@ $gray-text: #2c2c2c;
 @media screen and (max-width: 754px) {
   html {
     font-size: 45%;
+  }
+  .intro {
+    @include flex(space-between, center, column);
   }
   .intro-images svg {
     height: 60%;
@@ -60,11 +60,10 @@ $gray-text: #2c2c2c;
       font-size: 5rem;
     }
   }
-  
+
   .intro-text {
     margin-top: 5rem;
     text-align: center;
-    
   }
   .intro-social {
     @include flex(center, center, row);
@@ -90,7 +89,6 @@ $gray-text: #2c2c2c;
 }
 
 @media screen and (max-width: 426px) {
-  
   nav {
     .logo img {
       width: 100px;
